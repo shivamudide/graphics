@@ -202,6 +202,7 @@
   }
 
   async function load_geometry(name) {
+    console.log('Name = ' + name + '.')
     console.log('Loading ' + name + '.');
     INFO.innerHTML += 'Loading geometry "' + name + '".<br>';
     var result = await invokeFunction('GetGeometryMetadata' + SIMULATION_IDX,
@@ -546,6 +547,7 @@
   var loops = 0;
 
   function update_frame() {
+    consol.log("Update frame called. Hello, Peter.")
     if(!GL) {
       window.requestAnimationFrame(update_frame);
       return;
@@ -593,7 +595,10 @@
     }
 
     for (var name in GEOMETRY) {
+      consol.log("Logging in update_frame");
+      consol.log("name in GEOMETRY" + name);
       var geom = GEOMETRY[name];
+      consol.log("geom" + geom);
 
       set_attribute(geom, 'size');
       set_attribute(geom, 'color');
