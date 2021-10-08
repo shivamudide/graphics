@@ -424,6 +424,7 @@
     var buffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
     gl.bufferData(gl.ARRAY_BUFFER, position, gl.STATIC_DRAW);
+    console.log("Disk positions = " + position);
 
     return {
       vertex_position: position,
@@ -596,9 +597,9 @@
 
     for (var name in GEOMETRY) {
       console.log("Logging in update_frame");
-      console.log("name in GEOMETRY" + name);
+      console.log("name in GEOMETRY " + name);
       var geom = GEOMETRY[name];
-      console.log("geom" + geom);
+      console.log("geom " + geom);
 
       set_attribute(geom, 'size');
       set_attribute(geom, 'color');
@@ -652,6 +653,8 @@
         GL.drawArrays(GL.TRIANGLES, 0, vertex_count);
       }
       else {
+        console.log("Vertex Count = " + vertex_count);
+        console.log("Geom Count = " + geom.count);
         GL.drawArraysInstanced(GL.TRIANGLES, 0, vertex_count, geom.count);
       }
     }
